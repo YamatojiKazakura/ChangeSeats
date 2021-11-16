@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>席替え生成</title>
+</head>
+<body>
+<nav class="navbar bg-dark">
+    <div class="container">
+    <a class="navbar-brand text-white col" href="#">席替え生成</a>
+</div>
+</nav>
+<div class="container">
+    <h1 class="pb-3 pt-3">席替え生成v1.0</h1> 
+    <div class="border">
+        <div class="row col-10 mx-auto pt-3" id="desk">
+        <table class="table table-bordered table-secondary">
+            <h3 class="col-auto mx-auto">黒板</h3>
+            <br>
+            <tbody>
+                <tr>
+                    <td class="text-center col-1" id="aa">-</th>
+                    <td class="text-center col-1" id="ab">-</th>
+                    <td class="text-center col-1" id="ac">-</th>
+                    <td class="text-center col-1" id="ad">-</th>
+                    <td class="text-center col-1" id="ae">-</th>
+                    <td class="text-center col-1" id="af">-</th>
+                    <td class="text-center col-1" id="ag">-</th>
+                </tr>
+                <tr>
+                    <td class="text-center col-1" id="ba">-</th>
+                    <td class="text-center col-1" id="bb">-</th>
+                    <td class="text-center col-1" id="bc">-</th>
+                    <td class="text-center col-1" id="bd">-</th>
+                    <td class="text-center col-1" id="be">-</th>
+                    <td class="text-center col-1" id="bf">-</th>
+                    <td class="text-center col-1" id="bg">-</th>
+                </tr>
+                <tr>
+                    <td class="text-center col-1" id="ca">-</th>
+                    <td class="text-center col-1" id="cb">-</th>
+                    <td class="text-center col-1" id="cc">-</th>
+                    <td class="text-center col-1" id="cd">-</th>
+                    <td class="text-center col-1" id="ce">-</th>
+                    <td class="text-center col-1" id="cf">-</th>
+                    <td class="text-center col-1" id="cg">-</th>
+                </tr>
+                <tr>
+                    <td class="text-center col-1" id="da">-</th>
+                    <td class="text-center col-1" id="db">-</th>
+                    <td class="text-center col-1" id="dc">-</th>
+                    <td class="text-center col-1" id="dd">-</th>
+                    <td class="text-center col-1" id="de">-</th>
+                    <td class="text-center col-1" id="df">-</th>
+                    <td class="text-center col-1" id="dg">-</th>
+                </tr>
+                <tr>
+                    <td class="text-center col-1" id="ea">-</th>
+                    <td class="text-center col-1" id="eb">-</th>
+                    <td class="text-center col-1" id="ec">-</th>
+                    <td class="text-center col-1" id="ed">-</th>
+                    <td class="text-center col-1" id="ee">-</th>
+                    <td class="text-center col-1" id="ef">-</th>
+                    <td class="text-center col-1" id="eg">-</th>
+                </tr>
+                <tr>
+                    <td class="text-center col-1" id="fa">-</th>
+                    <td class="text-center col-1" id="fb">-</th>
+                    <td class="text-center col-1" id="fc">-</th>
+                    <td class="text-center col-1" id="fd">-</th>
+                    <td class="text-center col-1" id="fe">-</th>
+                    <td class="text-center col-1" id="ff">-</th>
+                    <td class="text-center col-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
+                        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                        <path fill-rule="evenodd" d="M12.146 5.146a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+                      </svg></th>
+                </tr>
+            </tbody>
+        </table>
+
+        </div>
+    </div>
+    <br>
+    <div class="border">
+        <div class="row col-10 mx-auto pb-3 pt-3" id="parent">
+            <h2 class="pb-3">名前を入力</h2>
+            <form name="form1" onsubmit="ChangeSeats()" id="form">
+            <div class="form-group">
+            <textarea class="form-control" id="name"></textarea>
+            </div>
+            <br>
+            <button type="submit" id="submit" class="btn btn-primary">生成</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script language="javascript">
+function ChangeSeats() {
+    let element = document.getElementById("name");
+    //console.log(element.value);
+    const names = element.value.split(/\n/);
+    //console.log(names);
+    if(names.length != 41) {
+        var error = document.createElement("div"); // div要素作成
+        var errormsg = document.createTextNode("正しい値を入れて下さい。"); // テキストノードを作成
+        error.appendChild(errormsg); // div要素にテキストノードを追加
+        error.setAttribute("class","alert alert-danger"); // div要素にclassを設定
+        error.setAttribute("role","alert"); // div要素にroleを設定
+
+        var Pdiv =document.getElementById("parent");
+        var Cdiv = document.getElementById("form");
+
+        Pdiv.insertBefore(error, Cdiv);
+        
+        console.log("41人だよ！");
+        return;
+    }
+    const shuffle = ([...names]) => {
+  for (let i = names.length - 1; i >= 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [names[i], names[j]] = [names[j], names[i]];
+  }
+  return names;
+}
+    const final = shuffle(names);
+    console.log(final);
+    let num = 0;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","aa");
+    aa.append(final[num]);
+    let aaa = document.getElementById('aa');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if (true) {
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","ab");
+    aa.append(final[num]);
+    let aaa = document.getElementById('ab');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","ac");
+    aa.append(final[num]);
+    let aaa = document.getElementById('ac');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","ad");
+    aa.append(final[num]);
+    let aaa = document.getElementById('ad');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","ae");
+    aa.append(final[num]);
+    let aaa = document.getElementById('ae');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","af");
+    aa.append(final[num]);
+    let aaa = document.getElementById('af');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","ag");
+    aa.append(final[num]);
+    let aaa = document.getElementById('ag');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","ba");
+    aa.append(final[num]);
+    let aaa = document.getElementById('ba');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","bb");
+    aa.append(final[num]);
+    let aaa = document.getElementById('bb');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","bc");
+    aa.append(final[num]);
+    let aaa = document.getElementById('bc');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","bd");
+    aa.append(final[num]);
+    let aaa = document.getElementById('bd');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","be");
+    aa.append(final[num]);
+    let aaa = document.getElementById('be');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","bf");
+    aa.append(final[num]);
+    let aaa = document.getElementById('bf');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","bg");
+    aa.append(final[num]);
+    let aaa = document.getElementById('bg');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","ca");
+    aa.append(final[num]);
+    let aaa = document.getElementById('ca');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","cb");
+    aa.append(final[num]);
+    let aaa = document.getElementById('cb');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","cc");
+    aa.append(final[num]);
+    let aaa = document.getElementById('cc');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","cd");
+    aa.append(final[num]);
+    let aaa = document.getElementById('cd');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","ce");
+    aa.append(final[num]);
+    let aaa = document.getElementById('ce');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","cf");
+    aa.append(final[num]);
+    let aaa = document.getElementById('cf');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","cg");
+    aa.append(final[num]);
+    let aaa = document.getElementById('cg');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","da");
+    aa.append(final[num]);
+    let aaa = document.getElementById('da');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","db");
+    aa.append(final[num]);
+    let aaa = document.getElementById('db');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","dc");
+    aa.append(final[num]);
+    let aaa = document.getElementById('dc');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","dd");
+    aa.append(final[num]);
+    let aaa = document.getElementById('dd');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","de");
+    aa.append(final[num]);
+    let aaa = document.getElementById('de');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","df");
+    aa.append(final[num]);
+    let aaa = document.getElementById('df');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","dg");
+    aa.append(final[num]);
+    let aaa = document.getElementById('dg');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","ea");
+    aa.append(final[num]);
+    let aaa = document.getElementById('ea');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","eb");
+    aa.append(final[num]);
+    let aaa = document.getElementById('eb');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","ec");
+    aa.append(final[num]);
+    let aaa = document.getElementById('ec');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","ed");
+    aa.append(final[num]);
+    let aaa = document.getElementById('ed');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","ee");
+    aa.append(final[num]);
+    let aaa = document.getElementById('ee');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","ef");
+    aa.append(final[num]);
+    let aaa = document.getElementById('ef');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","eg");
+    aa.append(final[num]);
+    let aaa = document.getElementById('eg');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","fa");
+    aa.append(final[num]);
+    let aaa = document.getElementById('fa');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","fb");
+    aa.append(final[num]);
+    let aaa = document.getElementById('fb');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","fc");
+    aa.append(final[num]);
+    let aaa = document.getElementById('fc');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","fd");
+    aa.append(final[num]);
+    let aaa = document.getElementById('fd');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","fe");
+    aa.append(final[num]);
+    let aaa = document.getElementById('fe');
+    aaa.replaceWith(aa);
+    }
+    num++;
+    if(true){
+    let aa = document.createElement('td');
+    aa.setAttribute("class","text-center col-1");
+    aa.setAttribute("id","ff");
+    aa.append(final[num]);
+    let aaa = document.getElementById('ff');
+    aaa.replaceWith(aa);
+    }
+};
+    
+</script>
+</body>
+</html>
