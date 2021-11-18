@@ -98,12 +98,15 @@
     </div>
 </div>
 <script language="javascript">
+var count = 0;
 function ChangeSeats() {
     let element = document.getElementById("name");
     //console.log(element.value);
     const names = element.value.split(/\n/);
     //console.log(names);
     if(names.length != 41) {
+        count++;
+        if(count = 1) {
         var error = document.createElement("div"); // div要素作成
         var errormsg = document.createTextNode("正しい値を入れて下さい。"); // テキストノードを作成
         error.appendChild(errormsg); // div要素にテキストノードを追加
@@ -117,6 +120,7 @@ function ChangeSeats() {
         
         console.log("41人だよ！");
         return;
+        }
     }
     const shuffle = ([...names]) => {
   for (let i = names.length - 1; i >= 0; i--) {
